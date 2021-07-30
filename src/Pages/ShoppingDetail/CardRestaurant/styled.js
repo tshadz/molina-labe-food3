@@ -21,10 +21,10 @@ export const Img = styled.img`
 `
 
 export const PName = styled.p`
-color: #e86e5a;
+color: #E8222E;
 `
 export const Grey = styled.p`
-  color : #b8b8b8;
+  color : #B8B8B8;
 
 `
 export const ContainerDescription = styled.div`

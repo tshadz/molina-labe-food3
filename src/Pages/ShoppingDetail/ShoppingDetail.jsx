@@ -6,13 +6,12 @@ import useRequestData from '../../hooks/useRequestData'
 import Loading from '../../components/Loading/Loading'
 
 
-
 import {useParams} from 'react-router-dom'
 import CardRestaurant from './CardRestaurant/CardRestaurant'
 import CardProduct from './CardProduct/CardProduct'
 import getRestaurant from '../../services/getRestaurant/getRestaurant'
 import Footer from '../../components/Footer/Footer'
-import { ContainerRestaurantsDetails } from './styled'
+import { ContainerRestaurantsDetails, CardCategory } from './styled'
 import Header from '../../components/Header/Header'
 
 
@@ -89,20 +88,19 @@ const ShoppingDetail = () =>{
     }
     
     const renderiza = (category) => {
-            // let categorie 
-            // console.log("teste de subs",categories.substring(categories.length - 2) === "ão")
-            
-            // if(categories.substring(categories.length - 2) === "ão") {
-              
-            //     categorie = categories.repleceAll("ão", "ões")
-            // } else {
-            //     categorie = categories.concat("s")
-            // }
+        let categorie = category
+        if(category.substring(category.length - 2) === "ão") {
+            categorie = categorie.replaceAll('ão', 'ões')
+        } else if(category.substring(category.length - 2) === "el") {
+            categorie = categorie.replaceAll('el', 'éis')
+        }else {
+            categorie = category.concat("s")
+        }
         return(
-            <div key={category}>
-                <h3> {category}</h3>
+            <CardCategory key={category}>
+                <h3> {categorie}</h3>
                 <div>{renderProducts(category)} </div>
-            </div>
+            </CardCategory>
         )
     }
     

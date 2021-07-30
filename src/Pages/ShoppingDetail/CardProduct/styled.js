@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 
 export const Card = styled.div`
-    width: 100%;
+    width: 90%;
     height: 100%;
     border: 1px solid #b8b8b8;
     display: grid;
@@ -39,7 +39,7 @@ export const PName = styled.p`
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.39px;
-    color: #e8222e;
+    color: #E8222E;
     
 
 `
