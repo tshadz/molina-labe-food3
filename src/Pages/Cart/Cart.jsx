@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { GlobalStateContext } from '../../global/GlobalStateContext'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
@@ -172,7 +172,7 @@ const Cart = () => {
                     <h3 className='adress-title'>Endereço de entrega</h3>
                     <h3>{end?.street},{end?.number}</h3>
                 </div>
-                {cart.length>0 ? <div className='restaurant-address'>
+                {cart.length > 0 ? <div className='restaurant-address'>
                     <h3>{cart[0]?.restaurantName}</h3>
                     <h3 className='restauran-adress-time' >{cart[0]?.restauranteAddress}</h3>
                     <h3 className='restauran-adress-time'>{cart[0]?.restaurantTime} min</h3>
@@ -180,19 +180,19 @@ const Cart = () => {
                 <div>
                     {cart.length === 0 ? <h3 className='text'>Carrinho Vazio</h3> : list}
                 </div>
-                <h2 className='frete'>Frete: R$ {cart.length>0?cart[0]?.shipping.toFixed(2) : '0,00'} </h2>
+                <h2 className='frete'>Frete: R$ {cart.length > 0 ? cart[0]?.shipping.toFixed(2) : '0,00'} </h2>
                 <div className='price-container'>
                     <h2>Subtotal  </h2>
                     <h2 className='price'>R${soma === 0 ? soma : somaWithFrete.toFixed(2)}</h2>
                 </div>
                 <h2 className='payment'>Forma de Pagamento</h2>
                 <form className='submit-order' onSubmit={onSubmitOrder}>
-                <div>
-                <input value={'money'} name={'paymentMethod'} onChange={onChangeInput} required   type="radio" />
-                    <label >Dinheiro </label> <br></br>
-                    <input value={'creditcard'} name={'paymentMethod'} onChange={onChangeInput} required   type="radio" />
-                    <label>Cartão de Crédito</label>
-                </div>
+                    <div>
+                        <input value={'money'} name={'paymentMethod'} onChange={onChangeInput} required type="radio" />
+                        <label >Dinheiro </label> <br></br>
+                        <input value={'creditcard'} name={'paymentMethod'} onChange={onChangeInput} required type="radio" />
+                        <label>Cartão de Crédito</label>
+                    </div>
                     <Button
                         variant="contained"
                         color="primary"
