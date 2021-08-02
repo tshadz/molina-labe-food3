@@ -32,7 +32,7 @@ const Profile = () =>{
                     type={'submit'}
                     fullWidth
                     margin={'normal'}
-                    onClick={logout}
+                    onClick={()=>logout()}
                 >
                     Logout
                 </Button>
