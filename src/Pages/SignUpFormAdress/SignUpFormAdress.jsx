@@ -11,8 +11,7 @@ import Header from '../../components/Header/Header'
 
 const SignUpFormAdress = () => {
     const history = useHistory()
-    setLogged(false)
-    changeInfoHeader("Endereço")
+
     const { input, onChangeInput, cleanFields, errors, setErrors, span, setSpan } = useForm({
         street:'',
         number:'',
