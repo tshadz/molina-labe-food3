@@ -19,9 +19,11 @@ import styled from "styled-components";
 import { OpenInNewOutlined, OpenInNewRounded } from '@material-ui/icons';
 
 const ButtonContainer = styled.div`
-  display: flex;
+    display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    flex-direction: column;
+    margin: 0px;
     width: 100%;
     
 `;
@@ -90,8 +92,8 @@ export default function AddCart({sendQuant, product, onChangeQuant, quant, idRes
     <div>
       <ButtonContainer>
         {cardExist ? 
-          <MyButton variant="outlined" color="primary" onClick={removeCart} add={true}> REMOVER</MyButton>
-        : <MyButton variant="outlined" color="primary" onClick={popUpClickOpen}> ADICIONAR </MyButton>} 
+          <MyButton variant="outlined" color="primary" onClick={removeCart} add={true}> remover</MyButton>
+        : <MyButton variant="outlined" color="primary" onClick={popUpClickOpen}> adicionar </MyButton>} 
       </ButtonContainer>
       <Dialog
         open={open}
@@ -139,7 +141,7 @@ export default function AddCart({sendQuant, product, onChangeQuant, quant, idRes
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button  color="primary" onClick={addToCart} autoFocus>
+            <Button  color='primary' onClick={addToCart} autoFocus>
               ADICIONAR AO CARRINHO
             </Button>
           </DialogActions>
