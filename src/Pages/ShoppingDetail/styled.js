@@ -5,13 +5,17 @@ export const ContainerRestaurantsDetails = styled.div`
 `
 
 export const CardCategory = styled.div`
-display: flex;
-align-items: center;
-flex-direction: column;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    padding: 0 16px;
     h3{
         border-bottom: 1px solid black;
-        width: 90%;
+        width: 100%;
         padding-bottom: 3px;
     }
+    box-sizing: border-box;
     
 `

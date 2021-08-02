@@ -1,6 +1,6 @@
 import React, { useEffect,useState, useContext } from 'react'
 import {Card, Img, PName, PDescription, 
-    ContainerDescription, PPrice, Button, ContainerCard, Text} from './styled'
+    ContainerDescription, PPrice, Button, ContainerCard, Text,Bottom} from './styled'
 import AddCart from '../AddCart/AddCartd'
 import { GlobalStateContext } from '../../../global/GlobalStateContext'
 
@@ -36,16 +36,20 @@ const CardProduct = ({product, sendQuant, onChangeQuant, quant,idRestaurant}) =>
                         <PName> {product.name} </PName>
                         {cardExist ? 
                             <p> {cardExist}</p>
-                        : <></>}</Text>
+                        : <></>}
+                    </Text>
                     <PDescription> {product.description}</PDescription>  
-                    <PPrice> R${product.price.toFixed(2)} </PPrice>
-            <AddCart 
-                sendQuant={sendQuant} 
-                product={product} 
-                onChangeQuant={onChangeQuant}
-                quant={quant}
-                idRestaurant={idRestaurant}
-            /> </ContainerDescription>
+                    <Bottom>
+                        <PPrice> R${product.price.toFixed(2)} </PPrice>
+                        <AddCart 
+                            sendQuant={sendQuant} 
+                            product={product} 
+                            onChangeQuant={onChangeQuant}
+                            quant={quant}
+                            idRestaurant={idRestaurant}
+                        /> 
+                    </Bottom>
+                </ContainerDescription>
             </Card>}
         </ContainerCard>
     )

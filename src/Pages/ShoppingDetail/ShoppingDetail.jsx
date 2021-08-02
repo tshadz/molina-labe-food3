@@ -99,7 +99,7 @@ const ShoppingDetail = () =>{
         return(
             <CardCategory key={category}>
                 <h3> {categorie}</h3>
-                <div>{renderProducts(category)} </div>
+                {renderProducts(category)}
             </CardCategory>
         )
     }
@@ -109,15 +109,14 @@ const ShoppingDetail = () =>{
             products.map((product) => {
                 if(category === product.category){
                     return(
-                        <div key={product.id}>
-                            <CardProduct 
-                                product={product}  
-                                onChangeQuant={onChangeQuant}
-                                sendQuant={sendQuant}
-                                quant={quant}
-                                idRestaurant={params.id}
-                            />
-                        </div>
+                        <CardProduct 
+                            product={product}  
+                            onChangeQuant={onChangeQuant}
+                            sendQuant={sendQuant}
+                            quant={quant}
+                            idRestaurant={params.id}
+                            key={product.id}
+                        />
                     )  
                 }
             })
