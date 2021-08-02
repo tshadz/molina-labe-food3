@@ -1,7 +1,6 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import {ContainerForm, InputsContainer } from './styled'
+import { InputsContainer } from './styled'
 import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
 import { putAddAdress } from '../../services/putServices'
@@ -13,43 +12,43 @@ const SignUpFormAdress = () => {
     const history = useHistory()
 
     const { input, onChangeInput, cleanFields, errors, setErrors, span, setSpan } = useForm({
-        street:'',
-        number:'',
-        neighbourhood:'',
-        city:'',
+        street: '',
+        number: '',
+        neighbourhood: '',
+        city: '',
         state: '',
-        complement:''
+        complement: ''
     })
 
     const validate = () => {
         let temp = {}
-        temp.street = input.street===''?'Campo de preenchimento obrigatório':''
-        temp.number = input.number===''?'Campo de preenchimento obrigatório':''
-        temp.neighbourhood = input.neighbourhood===''?'Campo de preenchimento obrigatório':''
-        temp.city = input.city===''?'Campo de preenchimento obrigatório':''
-        temp.state = input.state===''?'Campo de preenchimento obrigatório':''
-        temp.complement = input.complement===''?'Campo de preenchimento obrigatório':''
-        
+        temp.street = input.street === '' ? 'Campo de preenchimento obrigatório' : ''
+        temp.number = input.number === '' ? 'Campo de preenchimento obrigatório' : ''
+        temp.neighbourhood = input.neighbourhood === '' ? 'Campo de preenchimento obrigatório' : ''
+        temp.city = input.city === '' ? 'Campo de preenchimento obrigatório' : ''
+        temp.state = input.state === '' ? 'Campo de preenchimento obrigatório' : ''
+        temp.complement = input.complement === '' ? 'Campo de preenchimento obrigatório' : ''
+
         setErrors({
             ...temp
         })
         return Object.values(temp).every(x => x == '')
     }
-    
-    const onSubmitFormAdress = (event) =>{
+
+    const onSubmitFormAdress = (event) => {
         event.preventDefault()
-        if (validate()){
-            putAddAdress(input,history,cleanFields, setSpan)
+        if (validate()) {
+            putAddAdress(input, history, cleanFields, setSpan)
         }
     }
-    
+
     return (
         <div>
             <Header />
             <InputsContainer>
-            <form onSubmit={onSubmitFormAdress}>
+                <form onSubmit={onSubmitFormAdress}>
                     <Input
-                        type= 'text'
+                        type='text'
                         name='street'
                         label="Logradouro*"
                         value={input.street}
@@ -58,7 +57,7 @@ const SignUpFormAdress = () => {
                         error={errors.street}
                     />
                     <Input
-                        type= 'text'
+                        type='text'
                         name='name'
                         label="Número*"
                         value={input.number}
@@ -67,7 +66,7 @@ const SignUpFormAdress = () => {
                         error={errors.number}
                     />
                     <Input
-                        type= 'text'
+                        type='text'
                         name='complement'
                         label="Complemento*"
                         value={input.complement}
@@ -76,7 +75,7 @@ const SignUpFormAdress = () => {
                         error={errors.complement}
                     />
                     <Input
-                        type= 'text'
+                        type='text'
                         name='neighbourhood'
                         label="Bairro*"
                         value={input.neighbourhood}
@@ -85,7 +84,7 @@ const SignUpFormAdress = () => {
                         error={errors.neighbourhood}
                     />
                     <Input
-                        type= 'text'
+                        type='text'
                         name='city'
                         label="Cidade*"
                         value={input.city}
@@ -94,7 +93,7 @@ const SignUpFormAdress = () => {
                         error={errors.city}
                     />
                     <Input
-                        type= 'text'
+                        type='text'
                         name='state'
                         label="Estado*"
                         value={input.state}
@@ -102,7 +101,7 @@ const SignUpFormAdress = () => {
                         onChange={onChangeInput}
                         error={errors.state}
                     />
-                     <ErrorMessage
+                    <ErrorMessage
                         errorMsg={span}
                     />
                     <Button variant="contained" color="primary"
@@ -110,10 +109,10 @@ const SignUpFormAdress = () => {
                         fullWidth
                         margin={'normal'}
                     >
-                    Salvar
+                        Salvar
                     </Button>
                 </form>
-            </InputsContainer>   
+            </InputsContainer>
         </div>
     )
 }
