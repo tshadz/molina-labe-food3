@@ -8,13 +8,10 @@ import PersonalData from '../../components/PersonalData.js/PersonalData'
 import UserAdress from '../../components/UserAdress/UserAdress'
 import { goToLogin } from '../../routes/coordinator'
 import { ContainerProfile } from './styled'
-import { GlobalStateContext } from '../../global/GlobalStateContext'
 import Loading from '../../components/Loading/Loading'
 
 const Profile = () =>{
     const history = useHistory()
-
-    const {dataProfile, address} = useContext(GlobalStateContext)
 
     const logout = () => {
         localStorage.removeItem("token")
@@ -23,10 +20,10 @@ const Profile = () =>{
     
     return(
         <div>
-            <Header/>{!dataProfile || !address ? <Loading/> :
+            <Header/>
             <ContainerProfile>
-                <PersonalData dataProfile={dataProfile}/>
-                <UserAdress address={address}/>
+                <PersonalData />
+                <UserAdress/>
                 <p>Histórico de Pedidos</p>
                 <hr/>
                 <OrdersHistory/>
@@ -40,7 +37,7 @@ const Profile = () =>{
                 >
                     Logout
                 </Button>
-            </ContainerProfile>}
+            </ContainerProfile>
             <Footer/>
         </div>
     )

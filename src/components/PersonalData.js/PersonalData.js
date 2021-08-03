@@ -5,10 +5,14 @@ import {goToEditeProfile} from '../../routes/coordinator'
 import { useHistory } from 'react-router'
 import {ContainerPersonalData} from './styled'
 import Loading from '../Loading/Loading'
+import useRequestData from '../../hooks/useRequestData'
 
-const PersonalData = ({dataProfile}) => {
+
+const PersonalData = () => {
     useProtectedPage()
     const history = useHistory()
+
+    const dataProfile = useRequestData([], "/profile")
 
     return(
         <ContainerPersonalData>

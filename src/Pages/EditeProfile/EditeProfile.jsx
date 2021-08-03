@@ -7,10 +7,14 @@ import useForm from '../../hooks/useForm'
 import { putUpdateProfile } from '../../services/putServices'
 import Header from '../../components/Header/Header'
 import { GlobalStateContext } from '../../global/GlobalStateContext'
+import useRequestData from '../../hooks/useRequestData'
 
 const EditeProfile = () => {
 
     const {dataProfile} = useContext(GlobalStateContext)
+
+    // const dataProfile = useRequestData([], "/profile")
+    console.log("Dados Perfil", dataProfile)
 
     const { input, onChangeInput, cleanFields } = useForm({
         name: dataProfile.user && dataProfile.user.name,

@@ -5,11 +5,13 @@ import { goToEditAdress } from '../../routes/coordinator'
 import editPen from '../../assets/editPen.png'
 import { ContainerAdress } from './styled'
 import Loading from '../Loading/Loading'
+import useRequestData from '../../hooks/useRequestData'
 
-const UserAdress = ({address}) =>{
+const UserAdress = () =>{
     const history = useHistory()
 
     useProtectedPage()
+    const address = useRequestData({}, `/profile/address`)
 
     return(
         <div>
