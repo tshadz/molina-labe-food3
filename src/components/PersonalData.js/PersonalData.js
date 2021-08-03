@@ -6,13 +6,14 @@ import { useHistory } from 'react-router'
 import {ContainerPersonalData} from './styled'
 import Loading from '../Loading/Loading'
 import { GlobalStateContext } from '../../global/GlobalStateContext'
+import useRequestData from '../../hooks/useRequestData'
 
 
 const PersonalData = () => {
     useProtectedPage()
     const history = useHistory()
 
-    const {dataProfile} = useContext(GlobalStateContext)
+    const dataProfile = useRequestData([], "/profile")
 
     return(
         <ContainerPersonalData>

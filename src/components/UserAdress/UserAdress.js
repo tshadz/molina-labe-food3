@@ -6,12 +6,13 @@ import editPen from '../../assets/editPen.png'
 import { ContainerAdress } from './styled'
 import Loading from '../Loading/Loading'
 import {GlobalStateContext} from '../../global/GlobalStateContext';
+import useRequestData from '../../hooks/useRequestData'
 
 const UserAdress = () =>{
     const history = useHistory()
 
     useProtectedPage()
-    const {address} = useContext(GlobalStateContext)
+    const address = useRequestData({}, `/profile/address`)
 
     return(
         <div>
