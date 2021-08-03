@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { GlobalStateContext } from './GlobalStateContext'
 import useRequestData from '../hooks/useRequestData'
 

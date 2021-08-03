@@ -1,22 +1,18 @@
-import React, { useContext }  from 'react'
+import React from 'react'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import editPen from '../../assets/editPen.png'
 import {goToEditeProfile} from '../../routes/coordinator'
 import { useHistory } from 'react-router'
 import {ContainerPersonalData} from './styled'
 import Loading from '../Loading/Loading'
-import { GlobalStateContext } from '../../global/GlobalStateContext'
 
-
-const PersonalData = () => {
+const PersonalData = ({dataProfile}) => {
     useProtectedPage()
     const history = useHistory()
 
-    const {dataProfile} = useContext(GlobalStateContext)
-
     return(
         <ContainerPersonalData>
-            {dataProfile.user ? <div>
+            {dataProfile.user ?<div>
                 <div id={"personalData"}>
                     <div>
                         <p id={"name"}>{dataProfile.user.name}</p>

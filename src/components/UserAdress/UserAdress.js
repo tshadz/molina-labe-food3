@@ -1,21 +1,19 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import { goToEditAdress } from '../../routes/coordinator'
 import editPen from '../../assets/editPen.png'
 import { ContainerAdress } from './styled'
 import Loading from '../Loading/Loading'
-import {GlobalStateContext} from '../../global/GlobalStateContext';
 
-const UserAdress = () =>{
+const UserAdress = ({address}) =>{
     const history = useHistory()
 
     useProtectedPage()
-    const {address} = useContext(GlobalStateContext)
 
     return(
         <div>
-            {address.address ? <ContainerAdress>
+            {address.address ?<ContainerAdress>
                 <div id={"adress"}>
                     <p id={"title"}>Endereço cadastrado</p>
                     <p id={"adress"}>{`${address.address.street}, ${address.address.number}, ${address.address.complement} ${address.address.neighbourhood} 
