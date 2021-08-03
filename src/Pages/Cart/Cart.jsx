@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button';
 import MyButton from './buttonStyled'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import { useHistory } from 'react-router-dom'
+import { goToFeed } from '../../routes/coordinator'
 
 const HeaderContainer = styled.div`
     display: flex;
@@ -101,10 +103,10 @@ const Cart = () => {
     const { input, onChangeInput, cleanFields } = useForm({
         paymentMethod: '',
     })
-    const data = useRequestData({}, `/restaurants/${1}`)
-
+    const data = useRequestData({}, `/restaurants/${1}`)    
     const adress = useRequestData([], `/profile/address`)
     const end = adress?.address
+    const history = useHistory()
     /*----------------------------- Lógica remover quantidade--------------------------*/
     const removeQuant = (id) => {
         const algo = cart.map((x) => {
@@ -162,7 +164,8 @@ const Cart = () => {
             }),
             paymentMethod: input.paymentMethod
         }
-        postPlaceOrder(cart[0]?.idRestaurant, body)
+        postPlaceOrder(cart[0]?.idRestaurant, body) && history.go(0)
+        goToFeed(history)
     }
     return (
         <div>
