@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
-import { InputsContainer } from './styled'
+import {ContainerForm, InputsContainer } from './styled'
 import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
 import { putAddAdress } from '../../services/putServices'
@@ -45,74 +45,76 @@ const SignUpFormAdress = () => {
     return (
         <div>
             <Header />
-            <InputsContainer>
-                <form onSubmit={onSubmitFormAdress}>
-                    <Input
-                        type='text'
-                        name='street'
-                        label="Logradouro*"
-                        value={input.street}
-                        placeholder='Rua / Av.'
-                        onChange={onChangeInput}
-                        error={errors.street}
-                    />
-                    <Input
-                        type='text'
-                        name='name'
-                        label="Número*"
-                        value={input.number}
-                        placeholder='Número'
-                        onChange={onChangeInput}
-                        error={errors.number}
-                    />
-                    <Input
-                        type='text'
-                        name='complement'
-                        label="Complemento*"
-                        value={input.complement}
-                        placeholder='Apto. /Bloco'
-                        onChange={onChangeInput}
-                        error={errors.complement}
-                    />
-                    <Input
-                        type='text'
-                        name='neighbourhood'
-                        label="Bairro*"
-                        value={input.neighbourhood}
-                        placeholder='Bairro'
-                        onChange={onChangeInput}
-                        error={errors.neighbourhood}
-                    />
-                    <Input
-                        type='text'
-                        name='city'
-                        label="Cidade*"
-                        value={input.city}
-                        placeholder='Cidade'
-                        onChange={onChangeInput}
-                        error={errors.city}
-                    />
-                    <Input
-                        type='text'
-                        name='state'
-                        label="Estado*"
-                        value={input.state}
-                        placeholder='Estado'
-                        onChange={onChangeInput}
-                        error={errors.state}
-                    />
-                    <ErrorMessage
-                        errorMsg={span}
-                    />
-                    <Button variant="contained" color="primary"
-                        type={'submit'}
-                        fullWidth
-                        margin={'normal'}
-                    >
-                        Salvar
-                    </Button>
-                </form>
-            </InputsContainer>
+            <ContainerForm>
+                <InputsContainer>
+                    <form onSubmit={onSubmitFormAdress}>
+                        <Input
+                            type='text'
+                            name='street'
+                            label="Logradouro*"
+                            value={input.street}
+                            placeholder='Rua / Av.'
+                            onChange={onChangeInput}
+                            error={errors.street}
+                        />
+                        <Input
+                            type='text'
+                            name='number'
+                            label="Número*"
+                            value={input.number}
+                            placeholder='Número'
+                            onChange={onChangeInput}
+                            error={errors.number}
+                        />
+                        <Input
+                            type='text'
+                            name='complement'
+                            label="Complemento*"
+                            value={input.complement}
+                            placeholder='Apto. /Bloco'
+                            onChange={onChangeInput}
+                            error={errors.complement}
+                        />
+                        <Input
+                            type='text'
+                            name='neighbourhood'
+                            label="Bairro*"
+                            value={input.neighbourhood}
+                            placeholder='Bairro'
+                            onChange={onChangeInput}
+                            error={errors.neighbourhood}
+                        />
+                        <Input
+                            type='text'
+                            name='city'
+                            label="Cidade*"
+                            value={input.city}
+                            placeholder='Cidade'
+                            onChange={onChangeInput}
+                            error={errors.city}
+                        />
+                        <Input
+                            type='text'
+                            name='state'
+                            label="Estado*"
+                            value={input.state}
+                            placeholder='Estado'
+                            onChange={onChangeInput}
+                            error={errors.state}
+                        />
+                        <ErrorMessage
+                            errorMsg={span}
+                        />
+                        <Button variant="contained" color="primary"
+                            type={'submit'}
+                            fullWidth
+                            margin={'normal'}
+                        >
+                            Salvar
+                        </Button>
+                    </form>
+                </InputsContainer>
+            </ContainerForm>
         </div>
     )
 }
