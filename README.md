@@ -46,7 +46,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [x] Versão Desktop
 
 <h2 id="link">:link: Link Surge - link para visualização do site</h2>
-<a href="http://labefood-molina3.surge.sh">fourFoodA</a>
+<a href="http://fourfood3-molina.surge.sh">fourFoodA</a>
 
 <h2 id="imagens">:computer: Imagens Mobile</h2>
 
