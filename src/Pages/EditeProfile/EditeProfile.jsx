@@ -11,10 +11,7 @@ import useRequestData from '../../hooks/useRequestData'
 
 const EditeProfile = () => {
 
-    const {dataProfile} = useContext(GlobalStateContext)
-
-    // const dataProfile = useRequestData([], "/profile")
-    console.log("Dados Perfil", dataProfile)
+    const dataProfile = useRequestData([], "/profile")
 
     const { input, onChangeInput, cleanFields } = useForm({
         name: dataProfile.user && dataProfile.user.name,

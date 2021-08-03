@@ -5,13 +5,14 @@ import {ContainerForm, InputsContainer } from './styled'
 import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
 import { putAddAdress } from '../../services/putServices'
-import {GlobalStateContext} from '../../global/GlobalStateContext';
 import Header from '../../components/Header/Header'
+import useRequestData from '../../hooks/useRequestData'
 
 const EditAddress = () => {
     const history = useHistory()
+
+    const address = useRequestData({}, `/profile/address`)
     
-    const {address} = useContext(GlobalStateContext)
     const { input, onChangeInput, cleanFields } = useForm({
         street: address.address && address.address.street,
         number: address.address && address.address.number,
