@@ -2,7 +2,7 @@ import axios from 'axios'
 import { BASE_URL } from '../constants/urls'
 
 
-export const postPlaceOrder = (restaurantID, body) => {
+export const postPlaceOrder = (restaurantID, body, getActiveOrder) => {
 
     const config = {
         method: 'post',
@@ -14,6 +14,7 @@ export const postPlaceOrder = (restaurantID, body) => {
     axios(config)
     .then((res) => {
         alert('Pedido realizado com sucesso!')
+        getActiveOrder()
         return res.data
     })
     .catch((err) => {

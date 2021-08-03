@@ -8,7 +8,6 @@ import PersonalData from '../../components/PersonalData.js/PersonalData'
 import UserAdress from '../../components/UserAdress/UserAdress'
 import { goToLogin } from '../../routes/coordinator'
 import { ContainerProfile } from './styled'
-import Loading from '../../components/Loading/Loading'
 
 const Profile = () =>{
     const history = useHistory()

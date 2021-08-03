@@ -99,7 +99,7 @@ const ContainerFooter = styled.div`
 
 const Cart = () => {
     useProtectedPage()
-    const { cart, setCart } = useContext(GlobalStateContext)
+    const { cart, setCart, getActiveOrder} = useContext(GlobalStateContext)
     const { input, onChangeInput, cleanFields } = useForm({
         paymentMethod: '',
     })
@@ -164,7 +164,7 @@ const Cart = () => {
             }),
             paymentMethod: input.paymentMethod
         }
-        postPlaceOrder(cart[0]?.idRestaurant, body) && history.go(0)
+        postPlaceOrder(cart[0]?.idRestaurant, body, getActiveOrder) && history.go(0)
         goToFeed(history)
     }
     return (
