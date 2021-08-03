@@ -24,8 +24,14 @@ const SignUpForm = () => {
         temp.email = input.email===''?'Campo de preenchimento obrigatório':''
         temp.cpf = input.cpf===''?'Campo de preenchimento obrigatório':''
         temp.password = input.password.length>5?'':input.password===''?'Campo de preenchimento obrigatório':'Mínimo de 6 caracteres'
-        temp.passwordValidation = input.passwordValidation===''?'Campo de preenchimento obrigatório':''
-        //input.passwordValidation.length>5?input.passwordValidation==!input.password?'As senhas informadas são diferentes':'':''
+        temp.passwordValidation = 
+            input.passwordValidation===''?
+                'Campo de preenchimento obrigatório'
+                :input.passwordValidation.length>5?
+                    input.passwordValidation===input.password?
+                    ''
+                    :'As senhas informadas são diferentes, verifique novamente os campos'
+                :'Mínimo de 6 caracteres'
         setErrors({
             ...temp
         })
